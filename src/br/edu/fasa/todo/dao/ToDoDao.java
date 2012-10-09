@@ -265,5 +265,226 @@ public class ToDoDao extends Dao<ToDo> {
 			db.close();
 		}
 	}
+	
+	
+//INICINADO TABELA LIVROS ------------------------------------------------------------------
+
+	
+	/** Nome da tabela sobre a qual esta classe atua */
+	public static String TABLE_LIVROS = "livros";
+
+	/**
+	 * Classe estática com a finalidade de definir
+	 * constantes mais acessíveis para nomes de colunas
+	 * da tabela sobre a qual esta classe atual.
+	 */
+	public static final class Column_LIVROS {
+		public static String ID = "_id";
+		public static String NOME = "nome";
+		public static String AUTOR = "autor";
+		public static String EDICAO = "edicao";
+	}
+
+
+
+
+
+	/**
+	 * Método responsável pela geração de uma lista com todos
+	 * os resgistros armazenados no banco de dados.
+	 * 
+	 * @return Lista com todos os ToDo armazenados em banco de dados.
+	 */
+	@Override
+	public List<ToDo> selectAll_LIVROS() {
+		// getDB() é uma implementação da classe base que
+		// usa o DbHelper para conseguir uma instância
+		// acessível do banco de dados.
+		SQLiteDatabase db = getDB();
+		
+		// Cursor para iteração sobre o resultado gerado
+		Cursor c = null;
+
+		try {
+			// Nome das colunas que deverão ser devolvidas
+			// como resultadoda da consulta
+			String columns[] = new String[] { Column_LIVROS.ID, Column_LIVROS.NOME, Column_LIVROS.AUTOR, Column_LIVROS.EDICAO };
+
+			// Execução da consulta.
+			// O resultado é um cursor para iteração sobre o resultado.
+			c = db.query(TABLE_NAME, columns, null, null, null, null,
+					Column_LIVROS.NOME);
+
+			// Variável para armazenamento dos
+			// resultados gerados pela consulta.
+			List<ToDo> allTodos = new ArrayList<ToDo>();
+
+			// Se existe um primeiro registro...
+			if (c.moveToFirst()) {
+				do {
+					// ... cria-se uma classe que será populada pelos
+					// dados retornados pela consulta
+					ToDo todo = new ToDo();
+					todo.setId(c.getInt(c.getColumnIndex(Column_LIVROS.ID)));
+					todo.setDescription(c.getString(c.getColumnIndex(Column_LIVROS.NOME)));
+					todo.setDescription(c.getString(c.getColumnIndex(Column_LIVROS.AUTOR)));
+					todo.setDescription(c.getString(c.getColumnIndex(Column_LIVROS.EDICAO)));
+
+					// Adiciona-se a nova instância à lista geral.
+					allTodos.add(todo);
+
+				// Itera enquanto houver um próximo registro.
+				} while (c.moveToNext());
+			}
+
+			// Devolve a lista com todos os resgistros encontrados.
+			// Pode ser nulo, caso não haja resgistros armazenados.
+			return allTodos;
+
+		} catch (Exception e) {
+			Log.e(this.getClass().getName(),
+					"Falha na leitura dos dados.", e);
+		} finally {
+			// Libera recursos para o sistema.
+			// startManagingCursor(Cursor) só funciona
+			// para o ciclo de vida de uma Activity!
+			if (c != null) {
+				c.close();
+			}
+			db.close();
+		}
+
+		// Garante que haja um valor de retorno
+		return null;
+	}
+
+	/**
+	 * Método responsável pela consulta de uma tarefa específica
+	 * com base em sua id.
+	 * 
+	 * @param i Identificação única da tarefa no banco de dados.
+	 * @return Retorna a tarefa cuja id for localizada.
+	 */
+	@Override
+	public ToDo select_LIVRO(int i) {
+		// Processo semelhante ao método anterior
+		SQLiteDatabase db = getDB();
+		Cursor c = null;
+
+		try {
+			String columns[] = new String[] { Column_LIVROS.ID, Column_LIVROS.NOME};
+
+			// Column.ID + " = ?" corresponde ao critério de consulta.
+			// new String[] { String.valueOf(i) } corresponde ao(s)
+			// valor(es) a ser(em) substituído(s) no critério de consulta. 
+			c = db.query(TABLE_LIVROS, columns, Column.ID + " = ?",
+					new String[] { String.valueOf(i) }, null, null, null);
+
+			ToDo todo = new ToDo();
+
+			if (c.moveToFirst()) {
+				todo.setId(c.getInt(c.getColumnIndex(Column_LIVROS.ID)));
+				todo.setDescription(c.getString(c
+						.getColumnIndex(Column_LIVROS.NOME)));
+				return todo;
+			}
+
+		} catch (Exception e) {
+			Log.e(this.getClass().getName(),
+					"Falha na leitura dos dados.", e);
+		} finally {
+			if (c != null) {
+				c.close();
+			}
+			db.close();
+		}
+
+		return null;
+	}
+
+	/**
+	 * Método responsável pela inserção de uma nova tarefa no banco de dados.
+	 * 
+	 * @param todo Objeto correspondente à nova tarefa a ser armazenada.
+	 */
+	@Override
+	public void insert_LIVRO(ToDo todo) {
+		// Processo semelhante ao método anterior
+		SQLiteDatabase db = getDB();
+		
+		// Como não existe valor de retorno, não é necessário um Cursor
+
+		try {
+			// Variável que conterá os valores a serem armazenados.
+			ContentValues values = new ContentValues();
+			
+			// Preparação do par coluna/valor para inserção.
+			// _id é autoincrementável, bastando que seja inserida
+			// a descrição da nova tarefa.
+			values.put(Column_LIVROS.NOME, todo.getDescription());
+			
+			// Inserção do(s) valor(es) na tabela específica.
+			db.insert(TABLE_LIVROS, null, values);
+		} catch (Exception e) {
+			Log.e("ToDoDao",
+					TABLE_LIVROS + ": falha ao inserir registro "
+							+ todo.getDescription(), e);
+		} finally {
+			db.close();
+		}
+	}
+
+	/**
+	 * Método responsável pela atualização de uma tarefa pré-existente.
+	 * 
+	 * @param todo Objeto correspondente à nova tarefa a ser atualizada.
+	 */
+	@Override
+	public void update_LIVRO(ToDo todo) {
+		// Processo semelhante ao método anterior
+		SQLiteDatabase db = getDB();
+
+		try {
+			// Variável que conterá os valores a serem armazenados.
+			ContentValues values = new ContentValues();
+			
+			// Preparação do par coluna/valor para inserção.
+			values.put(Column_LIVROS.NOME, todo.getDescription());
+			
+			// "_id = ?" corresponde ao critério da atualização.
+			// new String[] { String.valueOf(todo.getId()) } corresponde ao(s)
+			// valor(es) a ser(em) substituído(s) no critério de atualização.
+			db.update(TABLE_LIVROS, values, "_id = ?",
+					new String[] { String.valueOf(todo.getId()) });
+		} catch (Exception e) {
+			Log.e("ToDoDao", TABLE_LIVROS + ": falha ao atualizar registro "
+					+ todo.getId(), e);
+		} finally {
+			db.close();
+		}
+	}
+
+	/**
+	 * Método responsável pela exclusão de uma tarefa pré-existente.
+	 * 
+	 * @param i Identificação única da tarefa a ser excluída.
+	 */
+	@Override
+	public void delete_LIVRO(int i) {
+		SQLiteDatabase db = getDB();
+
+		try {
+			// "_id = ?" corresponde ao critério da exclusão.
+			// new String[] { String.valueOf(i) } corresponde ao(s)
+			// valor(es) a ser(em) substituído(s) no critério de exclusão.
+			db.delete(TABLE_LIVROS, "_id = ?", new String[] { String.valueOf(i) });
+		} catch (Exception e) {
+			Log.e("ToDoDao", TABLE_LIVROS + ": falha ao excluir registro " + i, e);
+		} finally {
+			db.close();
+		}
+	}
+	
+	
 
 }
