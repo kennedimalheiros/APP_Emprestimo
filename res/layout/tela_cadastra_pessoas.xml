@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        
+        android:text="@string/titulo_activity"
+        android:textColor="@color/Azul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dip"
+        android:layout_marginLeft="10dip" 
+        android:id="@+id/labelTitulo"      
+    	></TextView>
+     
+    <TextView
+ 	 		     
+        android:text="@string/labelNome"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbNome"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtNome"
+        android:layout_marginTop="5dip"
+        ></EditText>
+    
+    <TextView
+ 	 		     
+        android:text="@string/labelEmail"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbEmail"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtEmail"
+        android:layout_marginTop="5dip"
+        ></EditText>
+    
+    <TextView
+ 	 		     
+        android:text="@string/labelTelefoneFixo"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbTelefoneFixo"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtTelefoneFixo"
+        android:layout_marginTop="5dip"
+        ></EditText>
+    
+    <TextView
+ 	 		     
+        android:text="@string/labelTelefoneCelular"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbTelefoneCelular"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtTelefoneCelular"
+        android:layout_marginTop="5dip"
+        ></EditText>    
+        
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+        
+    <Button
+        
+        android:text="@string/botaoSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salvar"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+	<Button
+        
+        android:text="@string/botaoCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelar"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+	<Button
+        
+        android:text="@string/botaoLimpar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/limpar"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+    
+</LinearLayout>    
+
+</LinearLayout>

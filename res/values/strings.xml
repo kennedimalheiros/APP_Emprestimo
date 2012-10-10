@@ -23,5 +23,14 @@
     
     <string name="btn_save">Salvar</string>
     <string name="btn_cancel">Cancelar</string>
+    
+    <string name="titulo_activity">Cadastro De Pessoas</string>
+    <string name="labelNome">Nome</string>
+    <string name="labelEmail">Email</string>
+    <string name="labelTelefoneFixo">Telefone</string>
+    <string name="labelTelefoneCelular">Celular</string>
+    <string name="botaoSalvar">Cadastrar</string>
+    <string name="botaoCancelar">Cancelar</string>
+    <string name="botaoLimpar">Limpar</string>
 
 </resources>
