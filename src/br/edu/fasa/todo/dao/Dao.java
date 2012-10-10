@@ -16,7 +16,7 @@ import android.database.sqlite.SQLiteDatabase;
 public abstract class Dao <T> {
 
 	/** Nome do banco de dados */
-	private String DB_NAME = "todo";
+	private String DB_NAME = "emprestimov";
 	
 	/** Versão do banco de dados */
 	private int DB_VERSION = 1;
