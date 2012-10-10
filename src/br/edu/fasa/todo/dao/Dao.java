@@ -64,24 +64,4 @@ public abstract class Dao <T> {
 		return dbHelper.getWritableDatabase();
 	}
 	
-	
-	// Inicio Metodos LIVRO -------------------------------------------------------------
-	
-	
-	/** Método responsável por selcionar todos os registros do BD */
-	public abstract List<T> selectAll_LIVROS();
-	
-	/** Método responsável por recuperar um único registro do BD baseado em uma id */
-	public abstract T select_LIVRO(int i);
-	
-	/** Método responsável pela inserção de um objeto no BD */
-	public abstract void insert_LIVRO(T o);
-	
-	/** Método responsável pela exclusão de um único registro do BD baseado em uma id */
-	public abstract void delete_LIVRO(int i);
-	
-	/** Método responsável pela atualização de um objeto no BD */
-	public abstract void update_LIVRO(T o);
-
-	
 }
