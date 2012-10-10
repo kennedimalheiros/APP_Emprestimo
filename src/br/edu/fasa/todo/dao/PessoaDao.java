@@ -8,15 +8,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import br.edu.fasa.todo.entity.ToDo;
+import br.edu.fasa.todo.entity.Pessoa;
 
-/**
- * Implementação do DAO específico para gerenciar ToDo.
- * 
- * @author Luis Guisso
- * @version 1.0 02 de junho de 2012
- */
-public class ToDoDao extends Dao<ToDo> {
+public class PessoaDao extends Dao<Pessoa> {
 
 	/** Contexto da aplicação. */
 	private static Context context;
@@ -25,10 +19,10 @@ public class ToDoDao extends Dao<ToDo> {
 	 * Instância estática da própria classe para implementação do padrão de
 	 * projeto Singleton.
 	 */
-	private static ToDoDao todo;
+	private static PessoaDao pessoa;
 
 	/** Nome da tabela sobre a qual esta classe atua */
-	public static String TABLE_NAME = "todos";
+	public static String TABLE_NAME = "pessoas";
 
 	/**
 	 * Classe estática com a finalidade de definir constantes mais acessíveis
@@ -36,7 +30,10 @@ public class ToDoDao extends Dao<ToDo> {
 	 */
 	public static final class Column {
 		public static String ID = "_id";
-		public static String DESCRIPTION = "description";
+		public static String NOME = "nome";
+		public static String EMAIL = "email";
+		public static String TELEFONE_FIXO = "telefone_fixo";
+		public static String TELEFONE_CELULAR = "telefone_celular";
 	}
 
 	/**
@@ -48,7 +45,7 @@ public class ToDoDao extends Dao<ToDo> {
 	 * @param ctx
 	 *            Contexto da aplicação.
 	 */
-	private ToDoDao(Context ctx) {
+	private PessoaDao(Context ctx) {
 		super(context);
 		context = ctx;
 	}
@@ -60,15 +57,14 @@ public class ToDoDao extends Dao<ToDo> {
 	 *            Contexto da aplicação.
 	 * @return Instância única da própria classe.
 	 */
-	public static ToDoDao getToDoDao(Context ctx) {
+	public static PessoaDao getPessoaDao(Context ctx) {
 		context = ctx;
-		if (todo == null) {
+		if (pessoa == null) {
 			// Uma nova instância da classe só é criada
 			// caso o contexto da aplicação ainda não
 			// tenha sido definido
-			todo = new ToDoDao(context);
 		}
-		return todo;
+		return pessoa;
 	}
 
 	/**
@@ -78,7 +74,7 @@ public class ToDoDao extends Dao<ToDo> {
 	 * @return Lista com todos os ToDo armazenados em banco de dados.
 	 */
 	@Override
-	public List<ToDo> selectAll() {
+	public List<Pessoa> selectAll() {
 		// getDB() é uma implementação da classe base que
 		// usa o DbHelper para conseguir uma instância
 		// acessível do banco de dados.
@@ -90,29 +86,29 @@ public class ToDoDao extends Dao<ToDo> {
 		try {
 			// Nome das colunas que deverão ser devolvidas
 			// como resultadoda da consulta
-			String columns[] = new String[] { Column.ID, Column.DESCRIPTION };
+			String columns[] = new String[] { Column.ID, Column.NOME };
 
 			// Execução da consulta.
 			// O resultado é um cursor para iteração sobre o resultado.
 			c = db.query(TABLE_NAME, columns, null, null, null, null,
-					Column.DESCRIPTION);
+					Column.NOME);
 
 			// Variável para armazenamento dos
 			// resultados gerados pela consulta.
-			List<ToDo> allTodos = new ArrayList<ToDo>();
+			List<Pessoa> allTodos = new ArrayList<Pessoa>();
 
 			// Se existe um primeiro registro...
 			if (c.moveToFirst()) {
 				do {
 					// ... cria-se uma classe que será populada pelos
 					// dados retornados pela consulta
-					ToDo todo = new ToDo();
-					todo.setId(c.getInt(c.getColumnIndex(Column.ID)));
-					todo.setDescription(c.getString(c
-							.getColumnIndex(Column.DESCRIPTION)));
+					Pessoa pessoa = new Pessoa();
+					pessoa.setId(c.getInt(c.getColumnIndex(Column.ID)));
+					pessoa.setNome(c.getString(c
+							.getColumnIndex(Column.NOME)));
 
 					// Adiciona-se a nova instância à lista geral.
-					allTodos.add(todo);
+					allTodos.add(pessoa);
 
 					// Itera enquanto houver um próximo registro.
 				} while (c.moveToNext());
@@ -147,13 +143,13 @@ public class ToDoDao extends Dao<ToDo> {
 	 * @return Retorna a tarefa cuja id for localizada.
 	 */
 	@Override
-	public ToDo select(int i) {
+	public Pessoa select(int i) {
 		// Processo semelhante ao método anterior
 		SQLiteDatabase db = getDB();
 		Cursor c = null;
 
 		try {
-			String columns[] = new String[] { Column.ID, Column.DESCRIPTION };
+			String columns[] = new String[] { Column.ID, Column.NOME };
 
 			// Column.ID + " = ?" corresponde ao critério de consulta.
 			// new String[] { String.valueOf(i) } corresponde ao(s)
@@ -161,13 +157,13 @@ public class ToDoDao extends Dao<ToDo> {
 			c = db.query(TABLE_NAME, columns, Column.ID + " = ?",
 					new String[] { String.valueOf(i) }, null, null, null);
 
-			ToDo todo = new ToDo();
+			Pessoa pessoa = new Pessoa();
 
 			if (c.moveToFirst()) {
-				todo.setId(c.getInt(c.getColumnIndex(Column.ID)));
-				todo.setDescription(c.getString(c
-						.getColumnIndex(Column.DESCRIPTION)));
-				return todo;
+				pessoa.setId(c.getInt(c.getColumnIndex(Column.ID)));
+				pessoa.setNome(c.getString(c
+						.getColumnIndex(Column.NOME)));
+				return pessoa;
 			}
 
 		} catch (Exception e) {
@@ -189,7 +185,7 @@ public class ToDoDao extends Dao<ToDo> {
 	 *            Objeto correspondente à nova tarefa a ser armazenada.
 	 */
 	@Override
-	public void insert(ToDo todo) {
+	public void insert(Pessoa pessoa) {
 		// Processo semelhante ao método anterior
 		SQLiteDatabase db = getDB();
 
@@ -202,14 +198,14 @@ public class ToDoDao extends Dao<ToDo> {
 			// Preparação do par coluna/valor para inserção.
 			// _id é autoincrementável, bastando que seja inserida
 			// a descrição da nova tarefa.
-			values.put(Column.DESCRIPTION, todo.getDescription());
+			values.put(Column.NOME, pessoa.getNome());
 
 			// Inserção do(s) valor(es) na tabela específica.
 			db.insert(TABLE_NAME, null, values);
 		} catch (Exception e) {
-			Log.e("ToDoDao",
+			Log.e("PessoaDao",
 					TABLE_NAME + ": falha ao inserir registro "
-							+ todo.getDescription(), e);
+							+ pessoa.getNome(), e);
 		} finally {
 			db.close();
 		}
@@ -222,7 +218,7 @@ public class ToDoDao extends Dao<ToDo> {
 	 *            Objeto correspondente à nova tarefa a ser atualizada.
 	 */
 	@Override
-	public void update(ToDo todo) {
+	public void update(Pessoa pessoa) {
 		// Processo semelhante ao método anterior
 		SQLiteDatabase db = getDB();
 
@@ -231,16 +227,16 @@ public class ToDoDao extends Dao<ToDo> {
 			ContentValues values = new ContentValues();
 
 			// Preparação do par coluna/valor para inserção.
-			values.put(Column.DESCRIPTION, todo.getDescription());
+			values.put(Column.NOME, pessoa.getNome());
 
 			// "_id = ?" corresponde ao critério da atualização.
 			// new String[] { String.valueOf(todo.getId()) } corresponde ao(s)
 			// valor(es) a ser(em) substituído(s) no critério de atualização.
 			db.update(TABLE_NAME, values, "_id = ?",
-					new String[] { String.valueOf(todo.getId()) });
+					new String[] { String.valueOf(pessoa.getId()) });
 		} catch (Exception e) {
-			Log.e("ToDoDao", TABLE_NAME + ": falha ao atualizar registro "
-					+ todo.getId(), e);
+			Log.e("PessoaDao", TABLE_NAME + ": falha ao atualizar registro "
+					+ pessoa.getId(), e);
 		} finally {
 			db.close();
 		}
@@ -262,10 +258,10 @@ public class ToDoDao extends Dao<ToDo> {
 			// valor(es) a ser(em) substituído(s) no critério de exclusão.
 			db.delete(TABLE_NAME, "_id = ?", new String[] { String.valueOf(i) });
 		} catch (Exception e) {
-			Log.e("ToDoDao", TABLE_NAME + ": falha ao excluir registro " + i, e);
+			Log.e("PessoaDao", TABLE_NAME + ": falha ao excluir registro " + i, e);
 		} finally {
 			db.close();
 		}
 	}
-
+	
 }
