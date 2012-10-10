@@ -18,10 +18,33 @@ public class Tela_inicial extends Activity
 // Interface para tratar eventos de clique em menus de contexto.
 		implements OnCreateContextMenuListener {
 
-	// Código para identificação de clique em Menu/Novo.
+	// Código para identificação de clique em Menu.
 	public static final int CAD_PESSOA = 100;
 	public static final int CAD_LIVRO = 200;
 	public static final int CAD_EMPRESTIMO = 300;
+	
+	// Código para identificação de clique em Menu/Edit.
+	public static final int CONTEXTMENUITEM_EDIT = 101;
+	
+	// Código para identificação de clique em Menu/Delete.
+	public static final int CONTEXTMENUITEM_DELETE = 102;
+
+	// Código para identificação de solicitação de operação
+	// inclusão de um nova tarefa no banco de dados.
+	public static final int REQUEST_NEW = 100;
+	
+	// Código para identificação de solicitação de operação
+	// atualização de tarefas no banco de dados.
+	public static final int REQUEST_UPDATE = 101;
+
+	// Código de resposta a ser utilizado para quando houver
+	// sucesso no processamento solicitado. 
+	public static final int RESPONSE_SUCCESS = 200;
+	
+	// Código de resposta a ser utilizado para quando houver
+	// cancelamento no processamento solicitado.
+	public static final int RESPONSE_CANCEL = 300;
+	
 	
 
 	@Override
