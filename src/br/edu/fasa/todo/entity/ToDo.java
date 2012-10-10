@@ -1,8 +1,8 @@
 package br.edu.fasa.todo.entity;
 
 /**
- * Classe representativa da entidade Tarefa a ser empregada na aplicação.
- * Também conhecida como Plain Old Java Object (POJO) e, às vezes, Bean.
+ * Classe representativa da entidade Tarefa a ser empregada na aplicação. Também
+ * conhecida como Plain Old Java Object (POJO) e, às vezes, Bean.
  * 
  * @author Luis Guisso
  * @version 1.0 02 de junho de 2012

@@ -104,8 +104,7 @@ public class PessoaDao extends Dao<Pessoa> {
 					// dados retornados pela consulta
 					Pessoa pessoa = new Pessoa();
 					pessoa.setId(c.getInt(c.getColumnIndex(Column.ID)));
-					pessoa.setNome(c.getString(c
-							.getColumnIndex(Column.NOME)));
+					pessoa.setNome(c.getString(c.getColumnIndex(Column.NOME)));
 
 					// Adiciona-se a nova instância à lista geral.
 					allTodos.add(pessoa);
@@ -161,8 +160,7 @@ public class PessoaDao extends Dao<Pessoa> {
 
 			if (c.moveToFirst()) {
 				pessoa.setId(c.getInt(c.getColumnIndex(Column.ID)));
-				pessoa.setNome(c.getString(c
-						.getColumnIndex(Column.NOME)));
+				pessoa.setNome(c.getString(c.getColumnIndex(Column.NOME)));
 				return pessoa;
 			}
 
@@ -203,9 +201,8 @@ public class PessoaDao extends Dao<Pessoa> {
 			// Inserção do(s) valor(es) na tabela específica.
 			db.insert(TABLE_NAME, null, values);
 		} catch (Exception e) {
-			Log.e("PessoaDao",
-					TABLE_NAME + ": falha ao inserir registro "
-							+ pessoa.getNome(), e);
+			Log.e("PessoaDao", TABLE_NAME + ": falha ao inserir registro "
+					+ pessoa.getNome(), e);
 		} finally {
 			db.close();
 		}
@@ -258,10 +255,11 @@ public class PessoaDao extends Dao<Pessoa> {
 			// valor(es) a ser(em) substituído(s) no critério de exclusão.
 			db.delete(TABLE_NAME, "_id = ?", new String[] { String.valueOf(i) });
 		} catch (Exception e) {
-			Log.e("PessoaDao", TABLE_NAME + ": falha ao excluir registro " + i, e);
+			Log.e("PessoaDao", TABLE_NAME + ": falha ao excluir registro " + i,
+					e);
 		} finally {
 			db.close();
 		}
 	}
-	
+
 }
