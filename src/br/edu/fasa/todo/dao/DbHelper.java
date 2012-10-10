@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Assistente de criação do banco de dados inicial do sistema.
- * Opcionalmente criam-se uma população de dados inicial.
+ * Assistente de criação do banco de dados inicial do sistema. Opcionalmente
+ * criam-se uma população de dados inicial.
  * 
  * @author Luis Guisso
  * @version 1.0 02 de junho de 2012
@@ -18,10 +18,14 @@ public class DbHelper extends SQLiteOpenHelper {
 	/**
 	 * Construtor da classe
 	 * 
-	 * @param context Contexto da aplicação
-	 * @param name Nome do banco de dados a ser criado
-	 * @param factory Interface que permite retornar novos cursores após consultas
-	 * @param version Versão do banco de dados a ser criado
+	 * @param context
+	 *            Contexto da aplicação
+	 * @param name
+	 *            Nome do banco de dados a ser criado
+	 * @param factory
+	 *            Interface que permite retornar novos cursores após consultas
+	 * @param version
+	 *            Versão do banco de dados a ser criado
 	 */
 	public DbHelper(Context context, String name, CursorFactory factory,
 			int version) {
@@ -29,35 +33,68 @@ public class DbHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Método invocado pelo Android a fim de executar
-	 * a criação de um novo banco de dados
+	 * Método invocado pelo Android a fim de executar a criação de um novo banco
+	 * de dados
 	 * 
-	 * @param db Nome do banco de dados fornecido pelo Android 
+	 * @param db
+	 *            Nome do banco de dados fornecido pelo Android
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		try {
-			String sql = "CREATE TABLE " + ToDoDao.TABLE_NAME
+			String sql_todoDao = "CREATE TABLE " + ToDoDao.TABLE_NAME
 					+ " (_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 					+ "description TEXT NOT NULL);";
-			db.execSQL(sql);
-			
-			sql = "INSERT INTO " + ToDoDao.TABLE_NAME
+			db.execSQL(sql_todoDao);
+
+			sql_todoDao = "INSERT INTO " + ToDoDao.TABLE_NAME
 					+ " (description) VALUES ('Tarefa exemplo')";
-			db.execSQL(sql);
+			db.execSQL(sql_todoDao);
 		} catch (Exception e) {
 			Log.e("DbHelper", "Erro na criação da tabela", e);
 		}
+
+		// SQL tabela LIVRO
+		try {
+			String sql_livro = "CREATE TABLE" + LivroDao.TABLE_NAME
+					+ " (_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
+					+ " titulo TEXT NOT NULL, " + " autor TEXT NOT NULL, "
+					+ " edicao TEXT NOT NULL); ";
+
+			db.execSQL(sql_livro);
+
+		} catch (Exception e) {
+			Log.e("DbHelper", "Erro na criação da tabela LIVRO", e);
+		}
+
+		// SQL tabela PESSOA
+		try {
+			String sql_pessoa = "CREATE TABLE" + PessoaDao.TABLE_NAME
+					+ " (_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
+					+ " nome TEXT NOT NULL, " + " email TEXT NOT NULL, "
+					+ " telefone_fixo TEXT NOT NULL, "
+					+ " telefone_celular TEXT NOT NULL); ";
+
+			db.execSQL(sql_pessoa);
+
+		} catch (Exception e) {
+			Log.e("DbHelper", "Erro na criação da tabela PESSOA", e);
+		}
+
+
+
 	}
 
 	/**
-	 * Método invocado pelo Android a fim de executar
-	 * a atualização de versões do banco de dados
+	 * Método invocado pelo Android a fim de executar a atualização de versões
+	 * do banco de dados
 	 * 
-	 * @param db Banco de dados a ser atualizado
-	 * @param oldVersion Número da versão atual do banco de dados
-	 * @param newVersion Número da versão para a qual o banco de dados
-	 * será atualizado
+	 * @param db
+	 *            Banco de dados a ser atualizado
+	 * @param oldVersion
+	 *            Número da versão atual do banco de dados
+	 * @param newVersion
+	 *            Número da versão para a qual o banco de dados será atualizado
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -66,11 +103,11 @@ public class DbHelper extends SQLiteOpenHelper {
 					+ " (_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 					+ "description TEXT NOT NULL);";
 			db.execSQL(sql);
-			
+
 			sql = "ALTER TABLE " + ToDoDao.TABLE_NAME
 					+ " ADD COLUMN creation DATE;";
 			db.execSQL(sql);
-			
+
 			sql = "INSERT INTO " + ToDoDao.TABLE_NAME
 					+ " (description, creation) "
 					+ "VALUES ('Tarefa exemplo', date('now'))";
