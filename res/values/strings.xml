@@ -28,7 +28,7 @@
     <string name="botaoSalvar">Cadastrar</string>
     <string name="botaoCancelar">Cancelar</string>
     <string name="botaoLimpar">Limpar</string>
-<<<<<<< HEAD
+
     <string name="botaoSair">Sair</string>
     
     <string name="labelDataEmp">Data Emprestimo</string>
@@ -44,10 +44,10 @@
 	<string name="labelEdicao_Livro">Edicao</string>
 	
     
-=======
+
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_tela_inicial">Tela Inicial</string>
 
->>>>>>> 000393c357f3e94de06ed4b9a1791f216e7ee410
+
 </resources>
