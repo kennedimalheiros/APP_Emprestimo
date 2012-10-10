@@ -3,27 +3,19 @@
 
     <string name="app_name">ToDo</string>
     <string name="todo_description">Descrição da tarefa</string>
-    
     <string name="menuitem_new">Nova tarefa</string>
     <string name="iteminsert_sucess">Nova tarefa incluída com sucesso</string>
-    
     <string name="context_edit">Editar tarefa</string>
     <string name="itemedit_sucess">Tarefa editada com sucesso</string>
-    
     <string name="context_delete">Excluir tarefa</string>
     <string name="itemdelete_sucess">Tarefa excluída com sucesso</string>
-
     <string name="cancel">Operação cancelada</string>
-    
     <string name="dialog_title">Atenção</string>
     <string name="dialog_message">Deseja excluir a tarefa?</string>
     <string name="dialog_positve">Sim</string>
     <string name="dialog_negative">Não</string>
-    
-    
     <string name="btn_save">Salvar</string>
     <string name="btn_cancel">Cancelar</string>
-    
     <string name="titulo_activity">Cadastro De Pessoas</string>
     <string name="labelNome">Nome</string>
     <string name="labelEmail">Email</string>
@@ -32,5 +24,8 @@
     <string name="botaoSalvar">Cadastrar</string>
     <string name="botaoCancelar">Cancelar</string>
     <string name="botaoLimpar">Limpar</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_tela_inicial">Tela Inicial</string>
 
 </resources>
