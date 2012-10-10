@@ -4,5 +4,118 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+     <TextView
+        
+        android:text="@string/titulo_activity3"
+        android:textColor="@color/Azul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dip"
+        android:layout_marginLeft="10dip" 
+        android:id="@+id/labelTituloLivros"      
+    	></TextView>
+     
+    <TextView
+ 	 		     
+        android:text="@string/labelTitulo_Livro"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbTituloLivro"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtTituloLivro"
+        android:layout_marginTop="5dip"
+        ></EditText>
+    
+    <TextView
+ 	 		     
+        android:text="@string/labelAutor_Livro"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbAutorLivro"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtAutorLivro"
+        android:layout_marginTop="5dip"
+        ></EditText>
+    
+    <TextView
+ 	 		     
+        android:text="@string/labelEdicao_Livro"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbEdicaoLivro"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtEdicaoLivro"
+        android:layout_marginTop="5dip"
+        ></EditText>
+    
+   
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+        
+    <Button
+        
+        android:text="@string/botaoSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salvar"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+	<Button
+        
+        android:text="@string/botaoCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelar"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+	<Button
+        
+        android:text="@string/botaoSair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sair"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+    
+</LinearLayout>  
+    
 
 </LinearLayout>

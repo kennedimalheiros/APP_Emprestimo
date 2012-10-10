@@ -127,10 +127,10 @@
         
 	<Button
         
-        android:text="@string/botaoLimpar"
+        android:text="@string/botaoSair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/limpar"
+        android:id="@+id/sair"
         android:layout_marginTop="5dip"
         android:textColor="@color/Azul"
         />

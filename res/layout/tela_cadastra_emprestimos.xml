@@ -2,7 +2,114 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
     
+     <TextView
+        
+        android:text="@string/titulo_activity2"
+        android:textColor="@color/Azul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dip"
+        android:layout_marginLeft="10dip" 
+        android:id="@+id/labelTituloEmprestimo"      
+    	></TextView>
+     
+      <TextView
+ 	 		     
+        android:text="@string/labelPessoa"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbPessoa"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+      
+      <Spinner
+          
+           android:layout_height="wrap_content"
+           android:layout_width="match_parent"       
+           android:id="@+id/Spinner"/>
+          
+             
+    <TextView
+ 	 		     
+        android:text="@string/labelDataEmp"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbDataEmp"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtDataEmprestimo"
+        android:layout_marginTop="5dip"        
+        ></EditText>
+    
+    <TextView
+ 	 		     
+        android:text="@string/labelDataDev"
+        android:textColor="@color/Vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:layout_marginLeft="10dip" 
+        android:textSize="20dip"
+        android:id="@+id/lbDataDevolucao"
+        android:layout_marginTop="5dip"      
+    	></TextView>
+    
+    <EditText
+        
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:id="@+id/edtDataDev"
+        android:layout_marginTop="5dip"
+        ></EditText>
+    
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+        
+    <Button
+        
+        android:text="@string/botaoSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salvarEmp"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+	<Button
+        
+        android:text="@string/botaoCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelarEmp"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+        
+	<Button
+        
+        android:text="@string/botaoSair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sairEmp"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Azul"
+        />
+   </LinearLayout> 
 
 </LinearLayout>

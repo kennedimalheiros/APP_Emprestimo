@@ -25,12 +25,30 @@
     <string name="btn_cancel">Cancelar</string>
     
     <string name="titulo_activity">Cadastro De Pessoas</string>
+    <string name="titulo_activity2">Cadastro De Emprestimos</string>
+    <string name="titulo_activity3">Cadastro De Livros</string>
+    
     <string name="labelNome">Nome</string>
     <string name="labelEmail">Email</string>
     <string name="labelTelefoneFixo">Telefone</string>
     <string name="labelTelefoneCelular">Celular</string>
+    
     <string name="botaoSalvar">Cadastrar</string>
     <string name="botaoCancelar">Cancelar</string>
     <string name="botaoLimpar">Limpar</string>
-
+    <string name="botaoSair">Sair</string>
+    
+    <string name="labelDataEmp">Data Emprestimo</string>
+    <string name="labelDataDev">Data Devolucao</string>
+    <string name="labelPessoa">Cliente</string>
+    
+    <string name="menuitem_cad_livro">Livros</string>
+    <string name="menuitem_cad_emprestimo">Emprestimos</string>
+    <string name="menuitem_cad_pessoa">Clientes</string>
+    
+	<string name="labelTitulo_Livro">Titulo</string>
+	<string name="labelAutor_Livro">Autor</string>
+	<string name="labelEdicao_Livro">Edicao</string>
+	
+    
 </resources>
