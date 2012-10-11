@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Pessoas extends Activity {
-
+ 
 	private EditText nome;
 	private EditText email;
 	private EditText telefone;
