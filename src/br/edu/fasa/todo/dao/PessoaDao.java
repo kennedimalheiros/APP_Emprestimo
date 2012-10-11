@@ -197,7 +197,11 @@ public class PessoaDao extends Dao<Pessoa> {
 			// _id é autoincrementável, bastando que seja inserida
 			// a descrição da nova tarefa.
 			values.put(Column.NOME, pessoa.getNome());
-
+			values.put(Column.EMAIL, pessoa.getEmail());
+			values.put(Column.TELEFONE_FIXO, pessoa.getTelefone_fixo());
+			values.put(Column.TELEFONE_CELULAR, pessoa.getTelefone_celular());
+			
+			
 			// Inserção do(s) valor(es) na tabela específica.
 			db.insert(TABLE_NAME, null, values);
 		} catch (Exception e) {

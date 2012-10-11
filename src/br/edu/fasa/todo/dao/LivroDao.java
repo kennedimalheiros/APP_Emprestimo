@@ -92,8 +92,7 @@ public class LivroDao extends Dao<Livro> {
 
 			// Execução da consulta.
 			// O resultado é um cursor para iteração sobre o resultado.
-			c = db.query(TABLE_NAME, columns, null, null, null, null,
-					Column.TITULO);
+			c = db.query(TABLE_NAME, columns, null, null, null, null, Column.TITULO);
 
 			// Variável para armazenamento dos
 			// resultados gerados pela consulta.
@@ -201,7 +200,11 @@ public class LivroDao extends Dao<Livro> {
 			// _id é autoincrementável, bastando que seja inserida
 			// a descrição da nova tarefa.
 			values.put(Column.TITULO, livro.getTitulo());
+			values.put(Column.AUTOR, livro.getAutor());
+			values.put(Column.EDICAO, livro.getEdicao());
 
+			
+			
 			// Inserção do(s) valor(es) na tabela específica.
 			db.insert(TABLE_NAME, null, values);
 		} catch (Exception e) {
@@ -230,6 +233,8 @@ public class LivroDao extends Dao<Livro> {
 
 			// Preparação do par coluna/valor para inserção.
 			values.put(Column.TITULO, livro.getTitulo());
+			values.put(Column.AUTOR, livro.getAutor());
+			values.put(Column.EDICAO, livro.getEdicao());
 
 			// "_id = ?" corresponde ao critério da atualização.
 			// new String[] { String.valueOf(todo.getId()) } corresponde ao(s)

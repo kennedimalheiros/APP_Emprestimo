@@ -5,7 +5,8 @@ public class Pessoa {
 	private int id;
 	private String nome;
 	private String email;
-	private String telefone;
+	private String telefone_fixo;
+	private String telefone_celular;
 	private String celular;
 
 	public int getId() {
@@ -32,12 +33,22 @@ public class Pessoa {
 		this.email = email;
 	}
 
-	public String getTelefone() {
-		return telefone;
+
+
+	public String getTelefone_fixo() {
+		return telefone_fixo;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setTelefone_fixo(String telefone_fixo) {
+		this.telefone_fixo = telefone_fixo;
+	}
+
+	public String getTelefone_celular() {
+		return telefone_celular;
+	}
+
+	public void setTelefone_celular(String telefone_celular) {
+		this.telefone_celular = telefone_celular;
 	}
 
 	public String getCelular() {
