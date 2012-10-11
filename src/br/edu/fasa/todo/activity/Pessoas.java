@@ -1,8 +1,6 @@
 package br.edu.fasa.todo.activity;
 
 import br.edu.fasa.todo.R;
-import br.edu.fasa.todo.R.layout;
-import br.edu.fasa.todo.R.menu;
 import br.edu.fasa.todo.dao.PessoaDao;
 import br.edu.fasa.todo.entity.Pessoa;
 import android.os.Bundle;
@@ -12,7 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class Pessoas extends Activity {
 
