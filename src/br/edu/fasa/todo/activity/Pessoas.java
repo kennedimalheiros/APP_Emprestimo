@@ -41,8 +41,8 @@ public class Pessoas extends Activity {
 			public void onClick(View v) {
 				p.setNome(nome.getText().toString());
 				p.setEmail(email.getText().toString());
-				p.setTelefone(telefone.getText().toString());
-				p.setCelular(celular.getText().toString());
+				p.setTelefone_fixo(telefone.getText().toString());
+				p.setTelefone_celular(celular.getText().toString());
 
 				PessoaDao.getPessoaDao(getApplicationContext()).insert(p);
 
@@ -56,8 +56,8 @@ public class Pessoas extends Activity {
 
 				p.setNome(null);
 				p.setEmail(null);
-				p.setTelefone(null);
-				p.setCelular(null);
+				p.setTelefone_fixo(null);
+				p.setTelefone_celular(null);
 
 			}
 		});
