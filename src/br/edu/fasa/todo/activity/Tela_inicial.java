@@ -1,11 +1,11 @@
 package br.edu.fasa.todo.activity;
 
+import br.edu.fasa.todo.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View.OnCreateContextMenuListener;
-import br.edu.fasa.todo.R;
 
 /**
  * Activity tela principal da aplicação.
