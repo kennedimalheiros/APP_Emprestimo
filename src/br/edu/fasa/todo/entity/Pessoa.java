@@ -7,7 +7,6 @@ public class Pessoa {
 	private String email;
 	private String telefone_fixo;
 	private String telefone_celular;
-	private String celular;
 
 	public int getId() {
 		return id;
@@ -33,8 +32,6 @@ public class Pessoa {
 		this.email = email;
 	}
 
-
-
 	public String getTelefone_fixo() {
 		return telefone_fixo;
 	}
@@ -49,14 +46,6 @@ public class Pessoa {
 
 	public void setTelefone_celular(String telefone_celular) {
 		this.telefone_celular = telefone_celular;
-	}
-
-	public String getCelular() {
-		return celular;
-	}
-
-	public void setCelular(String celular) {
-		this.celular = celular;
 	}
 
 }
