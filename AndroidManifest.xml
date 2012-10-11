@@ -11,20 +11,31 @@
     <application
         android:icon="@drawable/ic_todo"
         android:label="@string/app_name" >
-        <activity android:name=".activity.Tela_inicial" android:label="@string/title_activity_tela_inicial">
+        <activity
+            android:name=".activity.Tela_inicial"
+            android:label="@string/title_activity_tela_inicial" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity><activity
+        </activity>
+        <activity
             android:name=".activity.ToDoActivity"
             android:label="@string/app_name" >
         </activity>
         <activity android:name="br.edu.fasa.todo.activity.ToDoFormActivity" />
         <activity android:name=".activity.Livro_Activity" >
         </activity>
-        
+        <activity
+            android:name=".activity.Pessoas"
+            android:label="@string/title_activity_pessoas" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
