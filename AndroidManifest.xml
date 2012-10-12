@@ -28,7 +28,7 @@
         <activity android:name=".activity.Livro_Activity" >
         </activity>
         <activity
-            android:name=".activity.Pessoas"
+            android:name=".activity.Pessoa_Activity"
             android:label="@string/title_activity_pessoas" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

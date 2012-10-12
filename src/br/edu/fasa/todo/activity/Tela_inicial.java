@@ -90,7 +90,7 @@ public class Tela_inicial extends Activity
 			// ... cria-se uma Intent para iniciar a activity que
 			// conteém o formulário de inserção e...
 			Intent intent = new Intent(getApplicationContext(),
-					Pessoas.class);
+					Pessoa_Activity.class);
 			
 			// ... inicia-se a nova activity aguardando resposta.
 			startActivityForResult(intent, REQUEST_NEW);
