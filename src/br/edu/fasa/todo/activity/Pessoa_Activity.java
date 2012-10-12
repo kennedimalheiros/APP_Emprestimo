@@ -1,15 +1,17 @@
 package br.edu.fasa.todo.activity;
 
-import br.edu.fasa.todo.R;
-import br.edu.fasa.todo.dao.PessoaDao;
-import br.edu.fasa.todo.entity.Pessoa;
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import br.edu.fasa.todo.R;
+import br.edu.fasa.todo.dao.PessoaDao;
+import br.edu.fasa.todo.dao.ToDoDao;
+import br.edu.fasa.todo.entity.Pessoa;
 
 public class Pessoa_Activity extends Activity {
  
@@ -20,6 +22,7 @@ public class Pessoa_Activity extends Activity {
 	private Button cadastrar;
 	private Button cancelar;
 	private Button sair;
+	private Pessoa p;
 	
 
 	@Override
@@ -39,14 +42,21 @@ public class Pessoa_Activity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				
-				Pessoa p = new Pessoa();
+				Log.d("pessoal Activity", "entrou 11");
+				// Caso não haja uma tarefa instanciada (nova tarefa)
+				if (p == null) {
+					Log.d("pessoal Activity", "entrou 111");
+					// ... cria-se uma entidade.
+					p = new Pessoa();
+				}
+				Log.d("pessoal Activity", "entrou 111111");
 				p.setNome(nome.getText().toString());
 				p.setEmail(email.getText().toString());
 				p.setTelefone_fixo(telefone.getText().toString());
 				p.setTelefone_celular(celular.getText().toString());
-
+				Log.d("pessoal Activity", "entrou 1");
 				PessoaDao.getPessoaDao(getApplicationContext()).insert(p);
+				Log.d("pessoal Activity", "entrou 2");
 
 			}
 		});
@@ -56,7 +66,13 @@ public class Pessoa_Activity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				Pessoa p = new Pessoa();
+				// Caso não haja uma tarefa instanciada (nova tarefa)
+				if (p == null) {
+					
+					// ... cria-se uma entidade.
+					p = new Pessoa();
+				}
+				
 				p.setNome(null);
 				p.setEmail(null);
 				p.setTelefone_fixo(null);

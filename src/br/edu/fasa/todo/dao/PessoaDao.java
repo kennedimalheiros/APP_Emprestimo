@@ -183,9 +183,10 @@ public class PessoaDao extends Dao<Pessoa> {
 	 */
 	@Override
 	public void insert(Pessoa pessoa) {
+		Log.d("pessoal DAO", "entrou 1");
 		// Processo semelhante ao método anterior
 		SQLiteDatabase db = getDB();
-
+		Log.d("pessoal DAO", "entrou 2");
 		// Como não existe valor de retorno, não é necessário um Cursor
 
 		try {

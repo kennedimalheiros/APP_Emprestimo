@@ -16,10 +16,10 @@ import android.database.sqlite.SQLiteDatabase;
 public abstract class Dao <T> {
 
 	/** Nome do banco de dados */
-	private String DB_NAME = "emprestimov";
+	private String DB_NAME = "emprestimo";
 	
 	/** Versão do banco de dados */
-	private int DB_VERSION = 1;
+	private int DB_VERSION = 3;
 	
 	/** Contexto da aplicação*/
 	private Context context;
