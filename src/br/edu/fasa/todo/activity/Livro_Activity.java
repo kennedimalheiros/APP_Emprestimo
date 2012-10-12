@@ -38,6 +38,7 @@ public class Livro_Activity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				
 				lv.setTitulo(titulo.getText().toString());
 				lv.setAutor(autor.getText().toString());
 				lv.setEdicao(edicao.getText().toString());				
