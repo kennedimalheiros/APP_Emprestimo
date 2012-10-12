@@ -89,7 +89,7 @@
         android:text="@string/botaoSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/salvar"
+        android:id="@+id/salvarLivro"
         android:layout_marginTop="5dip"
         android:textColor="@color/Azul"
         />
@@ -99,7 +99,7 @@
         android:text="@string/botaoCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cancelar"
+        android:id="@+id/cancelarLivro"
         android:layout_marginTop="5dip"
         android:textColor="@color/Azul"
         />
@@ -109,7 +109,7 @@
         android:text="@string/botaoSair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sair"
+        android:id="@+id/sairLivro"
         android:layout_marginTop="5dip"
         android:textColor="@color/Azul"
         />
